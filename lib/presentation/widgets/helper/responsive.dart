@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proxyclick/core/extensions/size.dart';
 
 class ResponsiveWidget extends StatelessWidget {
   final Widget mobile;
@@ -14,10 +15,10 @@ class ResponsiveWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth >= 540) {
-          return desktop;
-        } else {
+        if (context.isMobileView) {
           return mobile;
+        } else {
+          return desktop;
         }
       },
     );
